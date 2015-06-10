@@ -1,0 +1,30 @@
+<h1>Flights#index</h1>
+
+<%= form_tag(root_path, method: "get") do %>
+  <%= label_tag(:departure_airport_id, "Departure Airport:") %>
+  <%= select_tag(:departure, options_for_select(@departure_options)) %>
+
+  <%= select_tag(:arrival, options_for_select(@departure_options)) %>
+
+  <%= select_tag(:passenger_number, options_for_select([1,2,3,4])) %>
+
+  <%= select_tag(:date, options_for_select(@date_options)) %>
+
+  <%= submit_tag "Search", class: "btn btn-primary col-md-4 col-md-offset-8" %>
+<% end %>
+
+
+
+<% if !@flights.empty? %>
+  <%= form_tag('bookings#new', method: "post") do %>
+    <% @flights.each do |f| %>
+      <%= radio_button_tag(:selected, f) %>
+      From <%= f.from_airport.code %>
+      to <%= f.to_airport.code %>
+      | Date <%= f.departure_date %>
+      </p>
+    <% end %>
+    <p><%= submit_tag "Select", class: "btn btn-primary col-md-4 col-md-offset-8" %></p>
+  <% end %>
+<% end %>
+

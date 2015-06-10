@@ -5,6 +5,9 @@ In this project, you'll get a chance to tackle some more advanced forms. This is
 A typical airline booking flow:
 
 Enter desired dates / airports and click "Search"
+
 Choose from among a list of eligible flights
+
 Enter passenger information for all passengers
+
 Enter billing information
