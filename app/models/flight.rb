@@ -2,6 +2,9 @@ class Flight < ActiveRecord::Base
   belongs_to :from_airport, class_name: "Airport", foreign_key: "departure_airport_id"
   belongs_to :to_airport, class_name: "Airport", foreign_key: "arrival_airport_id"
 
+  has_many :bookings
+  has_many :passengers, through: :bookings
+
   def self.date_list
     dates = Flight.all.order(departure_date: :asc)
     dates.map{|f| [f.departure_date.strftime("%d/%m/%Y") ]}.uniq

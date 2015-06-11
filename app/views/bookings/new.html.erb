@@ -1,0 +1,35 @@
+<h1>Booking</h1>
+
+<%= label_tag(:departure_airport_id, "Departure Airport:") %>
+<%= @flight.from_airport.code %> <br>
+
+<%= label_tag(:arrival_airport_id, "Arrival Airport:") %>
+<%= @flight.to_airport.code %><br>
+
+<%= label_tag(:departure_date, "Departure date:") %>
+<%= @flight.departure_date %><br>
+
+<%= label_tag(:passengers, "Number of passengers:") %>
+<%= @passengers %><br>
+
+<%= label_tag(:flight_id, "Flight id:") %>
+<%= @flight.id %><br>
+
+
+
+<%= form_for @booking  do |f| %>
+ 
+    <%= f.fields_for :passengers do |p| %>
+    <h3>Passenger </h3>
+      <p> Name </p>
+      <%= p.text_field :name %>
+      <p> Email </p>
+      <%= p.text_field :email %>
+    <% end %>
+
+  <%= hidden_field_tag(:passengers, @passengers) %>
+
+  <%= hidden_field_tag(:flight_id, @flight.id) %>
+
+  <%= f.submit "Continue" %><br>
+<% end %>

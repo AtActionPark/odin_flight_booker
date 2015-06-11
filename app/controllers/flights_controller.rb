@@ -7,7 +7,7 @@ class FlightsController < ApplicationController
 
     @departure = params[:departure]
     @arrival = params[:arrival]
-    @passenger_number = params[:passenger_number]
+    @passengers = params[:passengers]
     @date = params[:date]
 
     @flights = Flight.search(@departure, @arrival, @date)
