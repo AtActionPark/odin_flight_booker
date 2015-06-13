@@ -11,3 +11,8 @@ Choose from among a list of eligible flights
 Enter passenger information for all passengers
 
 Enter billing information
+
+
+[Project: Sending Welcome Emails](http://www.theodinproject.com/ruby-on-rails/sending-confirmation-emails?ref=lnav)
+
+Setting up a mailer is a relatively straightforward task. It's very similar to building a new controller and views. Once you've made a couple, it should come naturally.
